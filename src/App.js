@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import './Rwd.css';
-import { MdDone } from 'react-icons/md';
+import { MdDone, MdDeleteForever } from 'react-icons/md';
 import { Helmet } from 'react-helmet'; // a library that allows setting elements inside the <head> tag
 
 
@@ -16,14 +16,12 @@ function TodoList({ todo, index, complete, remove }) {
         style={{
           textDecoration: todo.isCompleted ? "line-through" : "",
           color: todo.isCompleted ? "green" : "#61DAFB"
-        }}
-        onClick={() => complete(index)}>
-
-        {todo.isCompleted ? <MdDone /> : null}
+        }}>
         {todo.text}
       </div>
-
-      <button className="delete" onClick={() => remove(index)}>x</button>
+      {!todo.isCompleted ?
+        <button className="done" onClick={() => complete(index)}><MdDone /></button> : <MdDone className="checked" />}
+      <button className="delete" onClick={() => remove(index)}><MdDeleteForever /></button>
     </div>
   );
 }
@@ -45,11 +43,14 @@ function Form({ addTodo }) {
       <input
         type="text"
         className="add-input"
-        placeholder="+ Add item(max-15)"
+        placeholder="Add item(max 15 chars)"
         minLength={1}
         maxLength={15}
         value={value}
         onChange={e => updateValue(e.target.value)} />
+      <input type="submit"
+        className="add"
+        value="+" />
     </form>
   );
 }
@@ -79,7 +80,7 @@ function App() {
 
   // grab the existing list of items, add on the new item, and display that new list.
   const newTodo = text => {
-    const newTodos = [...todos, { text }]; 
+    const newTodos = [...todos, { text }];
     updateTodos(newTodos);
   }
 
@@ -107,6 +108,7 @@ function App() {
         </Helmet>
       </header>
       <main className="todo-list">
+        <Form addTodo={newTodo} />
         {todos.map((todo, index) => (
           // JavaScript method, map() => create a new array of items
           <TodoList
@@ -117,7 +119,6 @@ function App() {
             remove={remove}
           />
         ))}
-        <Form addTodo={newTodo} />
       </main>
     </div>
   );

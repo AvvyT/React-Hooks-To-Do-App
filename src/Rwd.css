@@ -1,6 +1,6 @@
 /***  Responsive Web Design - Media Queries  ***/
 
-/* Large devices (laptops/desktops, 1600px and up) */
+/* Extra Large devices (laptops/desktops, 1600px and up) */
 
 @media only screen and (min-width: 1600px) {
     .todo-list {
@@ -8,11 +8,19 @@
     }
 }
 
+/* Large devices (laptops/desktops, 992px and up) */
+
+@media only screen and (min-width: 992px) {
+    .todo-list {
+        width: 40% !important;
+    }
+}
+
 /* Medium devices (landscape tablets, 768px and up) */
 
 @media only screen and (min-width: 768px) {
     .todo-list {
-        width: 40%;
+        width: 60%;
     }
 }
 
@@ -31,13 +39,17 @@
 
 @media only screen and (max-width: 767px) {
     .todo-list {
-        width: 60%;
+        width: 70%;
     }
     .add-input {
         font-size: 1.3rem;
     }
     .title {
         font-size: 1.3rem;
+    }
+    .add {
+        height: 40px;
+        width: 40px;
     }
 }
 
@@ -52,5 +64,9 @@
     }
     .title {
         font-size: 1.1rem;
+    }
+    .add {
+        height: 40px;
+        width: 40px;
     }
 }

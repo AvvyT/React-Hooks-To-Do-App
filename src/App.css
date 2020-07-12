@@ -27,21 +27,11 @@
 .todo {
   width: 75%;
   padding: 2% 6%;
-  cursor: pointer;
   border-bottom: 0.5px solid rgb(201, 200, 200);
 }
 
 .todo:hover {
   background-color: #F5F5F5;
-}
-
-.todo-text {
-  transition: transform .2s;
-  /* Animation */
-}
-
-.todo-text:hover {
-  transform: scale(1.2);
 }
 
 .title {
@@ -54,14 +44,16 @@
 }
 
 .add-input {
+  width: 80%;
   text-align: center;
   border: none;
   background: transparent;
   outline: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #000;
-  opacity: .2;
+  opacity: .4;
   padding: 5% 0 5% 0;
+  margin: 3% 0;
 }
 
 form {
@@ -69,9 +61,60 @@ form {
   text-align: center;
   align-items: center;
   justify-content: center;
+  width: -webkit-fill-available;
 }
 
-.todo-text, .delete {
+.add {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+  background: #61DAFB;
+  opacity: .8;
+  border: none;
+  color: white;
+  float: right;
+  font-size: 2rem;
+  box-shadow: 1px 1px 2px rgb(210, 207, 213);
+  transition: transform .2s;
+}
+
+.add:hover {
+  transform: scale(1.1);
+  opacity: initial;
+}
+
+.done {
+  opacity: .2;
+  font-size: 1.5rem;
+  margin-left: 8%;
+  color: black;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: transform .2s;
+}
+
+.done:hover {
+  color: green;
+  opacity: initial;
+  transform: scale(1.5);
+}
+
+.checked {
+  opacity: initial;
+  font-size: 1.5rem;
+  margin-left: 8%;
+  color: green;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.todo-text, .done, .delete {
   display: inline-block;
   vertical-align: initial;
 }
@@ -79,15 +122,17 @@ form {
 .delete {
   background-color: transparent;
   border: none;
-  margin: 2% 6%;
+  margin: 2% 0.5%;
   font-size: 1.5rem;
   color: #000;
   opacity: .2;
   cursor: pointer;
+  transition: transform .2s;
 }
 
 .delete:hover {
   color: red;
   opacity: initial;
   outline: none;
+  transform: scale(1.5);
 }
